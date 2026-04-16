@@ -5,13 +5,22 @@ Desarrollado por [MIGASS Entertainment](mailto:migxben@gmail.com) para **Bioq. M
 
 ---
 
+## 🚀 ACCESO DIRECTO
+
+### 👉 [**ABRIR APLICACIÓN — MGlo Bioestetic**](https://migassimport2024.github.io/MaGlo/mglo_bioestetic.html)
+
+> Hacé clic en el enlace de arriba para abrir la app directamente en el navegador.  
+> No requiere instalación. Funciona desde el celular y la computadora.
+
+---
+
 ## ✨ Descripción
 
 **MGlo Bioestetic** es una aplicación web progresiva (PWA) de archivo único `.html`, diseñada para gestionar de forma completa un centro de estética. Funciona **100% offline**, sin necesidad de servidor ni instalación. Los datos se almacenan localmente en el navegador (localStorage) y se pueden respaldar/restaurar mediante archivos `.json`.
 
 ---
 
-## 📱 Características principales
+## 📱 Módulos del sistema
 
 ### 🏠 Inicio — Dashboard
 - Resumen del día: citas programadas, ingresos del mes, clientes activos
@@ -54,7 +63,8 @@ Desarrollado por [MIGASS Entertainment](mailto:migxben@gmail.com) para **Bioq. M
 Desde el panel de configuración se puede personalizar:
 
 - Nombre del negocio y datos de contacto
-- **Plantillas de WhatsApp** para confirmaciones y recordatorios (con variables dinámicas: `{nombre}`, `{fecha}`, `{hora}`, `{servicio}`, `{precio}`, `{negocio}`)
+- **Plantillas de WhatsApp** para confirmaciones y recordatorios  
+  Variables disponibles: `{nombre}` `{fecha}` `{hora}` `{servicio}` `{precio}` `{negocio}`
 - Alias de pago digital
 - **Backup y restauración** de datos (`.json`)
 
@@ -63,25 +73,15 @@ Desde el panel de configuración se puede personalizar:
 ## 🔐 Almacenamiento de datos
 
 > Los datos se guardan **localmente en el navegador** (localStorage).  
-> Para transferir entre dispositivos, usá la función de **Backup → Exportar JSON** y luego restaurar en el otro dispositivo.
-
----
-
-## 🚀 Instalación y uso
-
-1. Descargá el archivo `mglo_bioestetic.html`
-2. Abrilo en cualquier navegador moderno (Chrome, Safari, Edge)
-3. ¡Listo! No requiere internet ni instalación adicional
-
-> 💡 Para usarlo como PWA en el celular: abrilo en Chrome/Safari → *"Agregar a pantalla de inicio"*
+> Para transferir entre dispositivos: **Configuración → Backup → Exportar JSON** y luego restaurar en el otro dispositivo.
 
 ---
 
 ## 📐 Tecnologías
 
-- HTML5 / CSS3 / JavaScript vanilla (sin frameworks)
+- HTML5 / CSS3 / JavaScript vanilla (sin frameworks ni dependencias)
 - `localStorage` para persistencia de datos
-- Fuentes: [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) + [DM Sans](https://fonts.google.com/specimen/DM+Sans)
+- Fuentes: Cormorant Garamond + DM Sans (Google Fonts)
 - Integración nativa con WhatsApp (`wa.me`)
 
 ---
@@ -98,6 +98,12 @@ Desde el panel de configuración se puede personalizar:
 ---
 
 ## 📞 Contacto
+
+**MGlo Bioestetic** — Bioq. María Gloria Sánchez  
+📍 Km 10 Acaray — Ciudad del Este, Paraguay  
+📱 0985 355 365
+
+---
 
 **MIGASS Entertainment** · Ciudad del Este, Paraguay  
 📧 migxben@gmail.com · 📱 +595 985 648 814
