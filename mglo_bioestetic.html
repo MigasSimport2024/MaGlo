@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="MGlo">
-<title>MGlo Bioestetic</title>
+<meta name="apple-mobile-web-app-title" content="MaGlo">
+<title>MaGlo-Biostethic</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -184,6 +184,13 @@ body{background:var(--beige);font-family:'DM Sans',sans-serif;color:var(--ink);m
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 input[type=date],input[type=time],input[type=number]{-webkit-appearance:none}
 .img-prev{width:100%;aspect-ratio:1;object-fit:cover;border-radius:11px;margin-top:6px;display:none}
+.cd{position:relative}
+.cdc{position:absolute;top:1px;right:2px;font-size:7.5px;font-weight:600;color:var(--gold-dark);background:rgba(201,168,76,.18);border-radius:6px;padding:0 3px;line-height:1.4}
+.avch{font-size:11px;padding:4px 9px;border-radius:8px;font-weight:500}
+.avch.free{background:rgba(76,175,110,.12);color:#2e7d4f;border:1px solid rgba(76,175,110,.3);cursor:pointer}
+.avch.occ{background:var(--beige-dark);color:var(--ink-light);text-decoration:line-through;opacity:.65}
+.bhsel{font-size:10px;border:1px solid var(--beige-dark);background:var(--white);color:var(--gold-dark);border-radius:6px;padding:1px 2px}
+.finrange{background:var(--white);border-radius:11px;padding:10px 11px 4px;margin-bottom:10px;border:1px solid var(--beige-dark)}
 </style>
 </head>
 <body>
@@ -205,7 +212,7 @@ input[type=date],input[type=time],input[type=number]{-webkit-appearance:none}
 <header class="hdr">
   <div class="hdr-inner">
     <div class="hdr-logo">
-      <img src="data:image/png;base64,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" alt="MGlo">
+      <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAA7AJUDASIAAhEBAxEB/8QAHAAAAQQDAQAAAAAAAAAAAAAAAAEEBQcCBggD/8QAMxAAAQMDAwMDAgMIAwAAAAAAAQIDBAAFEQYSIQcxURNBYTJxCBQiFSMlQnKBkaEWUtH/xAAZAQADAQEBAAAAAAAAAAAAAAAAAgMBBAX/xAApEQACAQMDAgUFAQAAAAAAAAAAAQIDESEEEjFBUQUTFGGRIjJScaHx/9oADAMBAAIRAxEAPwDj24LysNj25NNcCsnFFbqlj3NS2m7Ki8KmhdxjwUxI/rqW+lZSUhaUn6EqOf1A9vNEpWywSIfFHFTzOlbpIvrFmjfln35KFORnEPD03UhJVkK7dknvjBGDioeVEkxVqbkMuNKSopIWkghQOCPuDWKUX1NcWjx4o4oIoHNaYHFHHijFFbYA4o4owaAmsAOKOKNpxn2oIxW2AOKOKSisAXijikooAXivSM56byVe3Y15UUATFFecdW9lCviiqiEakfqrdm7RbbS1HdRqKN/FLaCtp9hxGAsc4UkKScLTjuOUkcd60gHBqWZu++0ptUuMmSy0pS469xStkn6gD/1OMkVzzTwWiyXjOzIFqlRGwlyalpxouAhSWY6ikqKce6ysJz4JHc8bdqxTk7SL1nWz68tuIm74A3OBxS2mlKHGcFtClnyCFduajGGoOnNNuvPsfmHkJjuvNOfSt9wKcYZPv6SEj1Fj+ZW0duai9ATXpvUWNd7q8+6oetLedxlStjS1nAyAfpwBkD27cVyzzefb+lY87e49vGgCx0bsuuou8qkSnWpiT2QjeUtKHxlKgT5IrQAnt2rrvR9ysUq3WnpNdYilMzdNtTcuLCS4pwqdUjA+lQzvBHjtVWTrD0i/b8qxXT/kWlZ8R4suh1wSGDggZ3AbgCMc44zUqOsktyqRftbsUlp07bX/AKajcdBvQeklu1Y627+bn3H0WmwM5ZKDtOPKlJOPgU16ddPrzrG4TG2FNQYFvaL1wnSMhuOgZyT7k8HA+K6T1JbJl/6bvwNKSYNweZlNuWswlpSG20KAQnceNyU7uf8A2ol3TN601+FO82ldtks32fJzIZ2ZeUkvITtwMlQ2Dg/1ea5KficnTs8ScrL9Mq9LFSxxa5QVxc6fW+YY0KHery22cGS5JRGDh9ylAQogeMnPxUsxZunV70lerhapV8t93tsX8wiHKcbdbeG9KThQSDxuzWo3TTl4tbXqXaG7byU5S1JSW3V8eyD+rHyRipeyaB1bcLJJvdrjNO25pC/zMhE1oIQkAZCsqBHB7GvUkoxSe/8Apypu9rG7QehziOnc3V1zvzRCLa5NjMw0FYUAjcApasf6BqmiM8JGc+3zXYsRPp/hkUgkK26ZcBUkggnYscEdxiqbR09tulekKdd6giJuU+WpoQ4C1rbZaSs8Kc2kKUdoJwCO6eTzXNptW5bt762Q9Wilbb2KcKSBRiug770s05q/pfH1loWE7bpxYLy7f66nG3Ck4WgFRJCuDtHv2qmH9LXdlreWm1qztKG3AtQVgnYduQFYBJT3GDkCuulqKdTjoSnSlEgqXFKpJBGfGaMHtVyRjRWW35FBGBzQA9t5yyR4NFY208LH2oqi4EYzpUY3DJxWNKO9THN7anwr5bXIMua1GdmNxihx5WENymGy2As+yHEH6uwVjOBk1I64a1Y1dbfBZlTmLZdmWmosZp7919KULbCUnbwrx3BBqtQrHY04gz5sF71YcyTGcGcKZdKD/kGoypZuiingtHrbeZun+vjs2CC27ZPyrEcHjhplAIx4P6h9jW29bdR6ea04xqvTwSi76sgojqUlQyzHQQXPsoqCWz8INUHcbpcbiQbhPlSyn6S+8peP8mm63lrQlCnFqSgEIBPCQTnjxzzU/Sr6M/aP51t3uXr0BhMag09fXm0XKHeLc0FxXrO+YrjoCSraopBSTlPcjmp7RHUCDqWYmz3zqDrGy5TsCpMqOlLigVEIU6GgpJ9snHwc4rna2Xa5WwqNuuUyHuIKjHeU2Tjt2NeU+4Tbg+ZE6ZIlPkY9R5wrVj7mpT0KnKTb549hlqHFJLoWB1asWqbVeH48iz+lBcWVolRvUeElJPClvKypZ+CceBW99MI8iL+GbWxlsOM+oXigup2gja0BjPfnNUhbtR363oCIV6uEVI9mpCkj/RrG56gvl0QEXO83GakHITIkrcA/so1s9NOpBQk1hp/AKrGLcl1OtLelbn4YUhIVzphxORzz6ahUVqtbHUb8OXqWQoflRosdxTDf1IdZAC0Y/p3Y84FczxdV6kjQE2+Pf7q1DSgoDCJaw3tPcbc4x8V42HUF7sD5fsl2n251WNyoz6m933weaivD2s7s3uO9Sni2LWOkuic96xfh6kTnmZLinJElERtpBK3CsJQCke4CiT44OarL9tt2VpmLcblEgQ2ShqPbreUuSUo3gqW86jIB/mUnJKiAMAVXF5vt2vDweulxlTFp+kvOlW0eAOw/tUcVZAroho0pSlfkR17pK3Bai53SV+S1Ikxrg4466tTx/eDJIWdzvONu4oxsAOM5B9/CLcOlsSIv+HSJCnWnm1pKVqUnLzZbKVEjCg2F+3jycVlkfNGR80/pl+T+RPOfZFrOX3plFbmRrfAeZS76gEhoOepsVHWnYCo9iogEHjJzmtA1iqzK1DMVp9KU2wqBjgBYITjsd5Jz55x44qICseaCrIx9qenSVN3TYs6jlyO7aOFn7UVlbxhknyaK6lwQYzdTscUnwawpxPH7/wC4FN6mx0LxRSUUALRmkooAKWkooAWjikooAKWkooAWjNJRQAUUUUAFFFZNDLqQe2RQBJR07GUJ+KK9KKqIf//Z" alt="MaGlo">
       <div class="hdr-brand">
         <div class="hdr-brand-title">Bioq. &amp; Cosmetóloga</div>
         <div class="hdr-brand-sub">María Gloria Sánchez</div>
@@ -229,6 +236,7 @@ input[type=date],input[type=time],input[type=number]{-webkit-appearance:none}
     <div id="alertsList"></div>
   </div>
   <div class="card"><div class="ctitle"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Citas de Hoy</div><div id="todayAppts"></div></div>
+  <div class="card" id="tmrwCard" style="display:none"><div class="ctitle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Citas de Mañana — Recordatorios</div><div id="tmrwAppts"></div></div>
   <div class="card"><div class="ctitle"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Resumen del Mes</div><div id="monthSummary"></div></div>
   <div class="card" style="background:linear-gradient(160deg,#111,#1c1710);border:1px solid rgba(201,168,76,.2)">
     <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold);margin-bottom:9px;letter-spacing:1px">Acciones Rápidas</div>
@@ -305,13 +313,27 @@ input[type=date],input[type=time],input[type=number]{-webkit-appearance:none}
 </div>
 
 <div id="s-finance" class="scr">
-  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink-mid);margin-bottom:12px">Finanzas</div>
-  <div class="tabs">
-    <div class="tab on" onclick="filterFin('month',this)">Este Mes</div>
-    <div class="tab" onclick="filterFin('year',this)">Este Año</div>
-    <div class="tab" onclick="filterFin('all',this)">Todo</div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink-mid)">Finanzas</div>
+    <button class="btn b-gold b-sm" style="width:auto" onclick="printFinReport()">🖨 Reporte</button>
   </div>
+  <div class="tabs">
+    <div class="tab" onclick="filterFin('week',this)">Semana</div>
+    <div class="tab on" onclick="filterFin('month',this)">Mes</div>
+    <div class="tab" onclick="filterFin('year',this)">Año</div>
+    <div class="tab" onclick="filterFin('all',this)">Todo</div>
+    <div class="tab" onclick="filterFin('custom',this)">📅 Rango</div>
+  </div>
+  <div id="finRange" class="finrange" style="display:none">
+    <div class="fr">
+      <div class="fg"><label class="fl">Desde</label><input type="date" class="fi" id="finFrom" onchange="renderFin()"></div>
+      <div class="fg"><label class="fl">Hasta</label><input type="date" class="fi" id="finTo" onchange="renderFin()"></div>
+    </div>
+  </div>
+  <div class="fg"><select class="fs" id="finClient" onchange="renderFin()"><option value="">👥 Todos los clientes</option></select></div>
+  <div id="finPeriodLbl" style="font-size:10.5px;color:var(--ink-light);margin-bottom:8px"></div>
   <div id="finCards"></div>
+  <div class="card" id="svcRankCard" style="display:none"><div class="ctitle"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Ranking de Servicios</div><div id="svcRankList"></div></div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
     <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-light)">Movimientos</div>
     <button class="btn b-soft b-sm" onclick="showOverlay('ovExpense')">+ Gasto</button>
@@ -765,8 +787,9 @@ function renderHome(){
       return`<div class="prow"><div><div style="font-size:13px;font-weight:500">${c?c.name+' '+c.surname:'Cliente'}</div><div style="font-size:11px;color:var(--ink-light)">${s?s.name:''}</div></div><span class="bdg b-gold-bdg">${rem} ses. rest.</span></div>`;
     }).join('');
   }else aC.style.display='none';
-  const tA=appts.filter(a=>a.date===today()).sort((a,b)=>a.time>b.time?1:-1);
+  const tA=appts.filter(a=>a.date===today()&&a.status!=='cancelado').sort((a,b)=>a.time>b.time?1:-1);
   const tEl=document.getElementById('todayAppts');
+  renderTomorrow(appts,clients);
   if(!tA.length){tEl.innerHTML='<div style="color:var(--ink-light);font-size:13px;text-align:center;padding:10px 0">Sin citas para hoy</div>';return}
   tEl.innerHTML=tA.map(a=>{
     const cl=clients.find(c=>c.id===a.cliId);
@@ -783,11 +806,32 @@ function renderHome(){
 }
 
 // ─── CALENDAR ───
+function renderTomorrow(appts,clients){
+  const t=new Date();t.setDate(t.getDate()+1);
+  const ds=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+  const tm=appts.filter(a=>a.date===ds&&a.status!=='cancelado').sort((a,b)=>a.time>b.time?1:-1);
+  const card=document.getElementById('tmrwCard');
+  if(!tm.length){card.style.display='none';return}
+  card.style.display='block';
+  document.getElementById('tmrwAppts').innerHTML=tm.map(a=>{
+    const cl=clients.find(c=>c.id===a.cliId);
+    return`<div class="slot"><div class="stime">${a.time||'--:--'}</div><div class="sinfo"><div class="sname">${cl?cl.name+' '+cl.surname:'Sin cliente'}</div><div class="ssvc">${a.svcName||''}</div></div><button class="btn b-wa b-sm" onclick="sendRemindWAById('${a.id}')">🔔 Recordar</button></div>`;
+  }).join('');
+}
+function sendRemindWAById(id){
+  const a=(DB.g('appointments')||[]).find(x=>x.id===id);if(!a)return;
+  const cl=(DB.g('clients')||[]).find(c=>c.id===a.cliId);if(!cl){toast('Cita sin cliente');return}
+  const sv=(DB.g('services')||[]).find(s=>s.id===a.svcId);
+  const t=DB.g('waTpl')||{};
+  const msg=(t.remind||'Hola {nombre}! 🌸 Recordatorio de tu cita *mañana* a las *{hora}* para *{servicio}* en {negocio}.').replace(/{nombre}/g,cl.name).replace(/{fecha}/g,fmt(a.date)).replace(/{hora}/g,a.time||'').replace(/{servicio}/g,sv?sv.name:a.svcName||'').replace(/{precio}/g,fmtM(a.price)).replace(/{negocio}/g,'MaGlo-Biostethic');
+  openWA(cl.phone,msg);
+}
 function renderCal(){
   const{calY,calM}=ST;
   document.getElementById('calMoLbl').textContent=moName(calM)+' '+calY;
   const appts=DB.g('appointments')||[];
-  const withAppts=new Set(appts.map(a=>a.date));
+  const cnt={};appts.forEach(a=>{if(a.date&&a.status!=='cancelado')cnt[a.date]=(cnt[a.date]||0)+1});
+  const withAppts=new Set(Object.keys(cnt));
   const first=new Date(calY,calM,1);
   let sd=first.getDay();sd=sd===0?6:sd-1;
   const dim=new Date(calY,calM+1,0).getDate();
@@ -797,7 +841,7 @@ function renderCal(){
   for(let d=1;d<=dim;d++){
     const ds=`${calY}-${String(calM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const cls=['cd',ds===ts?'tod':'',ds===ST.selDate?'sel':'',withAppts.has(ds)?'has':''].filter(Boolean).join(' ');
-    html+=`<div class="${cls}" onclick="selDate('${ds}')">${d}</div>`;
+    html+=`<div class="${cls}" onclick="selDate('${ds}')">${d}${cnt[ds]?`<span class="cdc">${cnt[ds]}</span>`:''}</div>`;
   }
   document.getElementById('calDays').innerHTML=html;
   if(ST.selDate)renderSlots(ST.selDate);
@@ -808,13 +852,35 @@ function renderSlots(ds){
   const appts=(DB.g('appointments')||[]).filter(a=>a.date===ds).sort((a,b)=>a.time>b.time?1:-1);
   document.getElementById('selDateLbl').textContent=fmt(ds);
   const el=document.getElementById('agendaSlots');
-  if(!appts.length){el.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><p>Sin citas este día</p></div>';return}
+  let listHtml='';
+  if(!appts.length){listHtml='<div class="empty"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><p>Sin citas este día</p></div>';el.innerHTML=listHtml+renderAvail(ds);return}
   const clr={completado:'var(--success)',cancelado:'var(--gray-mid)',pendiente:'var(--gold)',confirmado:'var(--info)'};
   el.innerHTML=appts.map(a=>{
     const cl=(DB.g('clients')||[]).find(c=>c.id===a.cliId);
     const sv=(DB.g('services')||[]).find(s=>s.id===a.svcId);
-    return`<div class="slot" style="border-left-color:${clr[a.status]||'var(--gold)'}"><div class="stime">${a.time||'--:--'}</div><div class="sinfo"><div class="sname">${cl?cl.name+' '+cl.surname:'Sin cliente'}</div><div class="ssvc">${sv?sv.name:a.svcName||''} <span class="bdg b-${a.status==='completado'?'green':a.status==='cancelado'?'gray':'rose'}" style="font-size:10px">${a.status}</span></div>${a.notes?`<div style="font-size:10px;color:var(--ink-light);font-style:italic;margin-top:1px">${a.notes}</div>`:''}</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px"><div class="sprice">${fmtM(a.price)}</div><div style="display:flex;gap:3px"><button class="btn b-wa b-sm" onclick="sendApptWAById('${a.id}')">WA</button><button class="btn b-sm" style="background:rgba(201,168,76,.12);color:var(--gold-dark);border:1px solid rgba(201,168,76,.25)" onclick="sendPayWAForAppt('${a.id}')">💳</button><button class="btn b-danger b-sm" onclick="delAppt('${a.id}')">✕</button></div></div></div>`;
-  }).join('');
+    return`<div class="slot" style="border-left-color:${clr[a.status]||'var(--gold)'}"><div class="stime">${a.time||'--:--'}</div><div class="sinfo"><div class="sname">${cl?cl.name+' '+cl.surname:'Sin cliente'}</div><div class="ssvc">${sv?sv.name:a.svcName||''} <span class="bdg b-${a.status==='completado'?'green':a.status==='cancelado'?'gray':'rose'}" style="font-size:10px">${a.status}</span></div>${a.notes?`<div style="font-size:10px;color:var(--ink-light);font-style:italic;margin-top:1px">${a.notes}</div>`:''}</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px"><div class="sprice">${fmtM(a.price)}</div><div style="display:flex;gap:3px"><button class="btn b-wa b-sm" onclick="sendApptWAById('${a.id}')" title="Enviar confirmación">✓ Confirmar</button><button class="btn b-sm" style="background:rgba(37,150,190,.12);color:#1b6f8c;border:1px solid rgba(37,150,190,.28)" onclick="sendRemindWAById('${a.id}')" title="Enviar recordatorio">🔔 Recordar</button></div><div style="display:flex;gap:3px"><button class="btn b-sm" style="background:rgba(201,168,76,.12);color:var(--gold-dark);border:1px solid rgba(201,168,76,.25)" onclick="sendPayWAForAppt('${a.id}')" title="Enviar datos de pago">💳</button><button class="btn b-soft b-sm" onclick="editAppt('${a.id}')" title="Editar">✏</button>${a.status==='cancelado'?`<button class="btn b-sm" style="background:rgba(76,175,110,.12);color:#2e7d4f;border:1px solid rgba(76,175,110,.3)" onclick="reactivarAppt('${a.id}')" title="Reactivar">↩</button>`:`<button class="btn b-sm" style="background:rgba(150,120,120,.12);color:#8a5a5a;border:1px solid rgba(150,120,120,.25)" onclick="cancelarAppt('${a.id}')" title="Cancelar (libera el horario)">🚫</button>`}<button class="btn b-danger b-sm" onclick="delAppt('${a.id}')" title="Borrar definitivo">✕</button></div></div></div>`;
+  }).join('')+renderAvail(ds);
+}
+function hourOpts(sel){let o='';for(let h=6;h<=22;h++){o+='<option value="'+h+'"'+(h===sel?' selected':'')+'>'+String(h).padStart(2,'0')+':00</option>'}return o}
+function setBizH(k,v){const bh=DB.g('bizHours')||{start:8,end:18};bh[k]=parseInt(v,10);if(bh.end<=bh.start){toast('El cierre debe ser mayor a la apertura');renderSlots(ST.selDate);return}DB.s('bizHours',bh);renderSlots(ST.selDate)}
+function renderAvail(ds){
+  const bh=DB.g('bizHours')||{start:8,end:18};
+  const dayAppts=(DB.g('appointments')||[]).filter(a=>a.date===ds&&a.status!=='cancelado');
+  const occ={};dayAppts.forEach(a=>{if(a.time)occ[parseInt(a.time.slice(0,2),10)]=true});
+  let chips='',free=0;
+  for(let h=bh.start;h<bh.end;h++){
+    const hh=String(h).padStart(2,'0')+':00';
+    if(occ[h]){chips+='<span class="avch occ">'+hh+'</span>'}
+    else{free++;chips+='<span class="avch free" onclick="newApptAt(\''+ds+'\',\''+hh+'\')">'+hh+'</span>'}
+  }
+  return '<div style="margin-top:12px;background:var(--white);border-radius:11px;padding:11px;border:1px solid var(--beige-dark)">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;flex-wrap:wrap;gap:4px">'
+    +'<div style="font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-light)">🕐 Disponibilidad · '+free+' libre'+(free!==1?'s':'')+'</div>'
+    +'<div style="font-size:10px;color:var(--ink-light)">Horario: <select class="bhsel" onchange="setBizH(\'start\',this.value)">'+hourOpts(bh.start)+'</select> a <select class="bhsel" onchange="setBizH(\'end\',this.value)">'+hourOpts(bh.end)+'</select></div>'
+    +'</div>'
+    +'<div style="display:flex;flex-wrap:wrap;gap:5px">'+chips+'</div>'
+    +'<div style="font-size:9.5px;color:var(--ink-light);margin-top:6px">Verde = libre (tocá para agendar) · Gris = ocupado</div>'
+    +'</div>';
 }
 
 // ─── APPOINTMENTS ───
@@ -859,7 +925,7 @@ function updApptWATpl(){
   const price=document.getElementById('apptPrice').value;
   const cl=(DB.g('clients')||[]).find(c=>c.id===cliId);
   const sv=(DB.g('services')||[]).find(s=>s.id===svcId);
-  const msg=(t.confirm||'').replace(/{nombre}/g,cl?cl.name:'(cliente)').replace(/{fecha}/g,fmt(date)||'(fecha)').replace(/{hora}/g,time||'(hora)').replace(/{servicio}/g,sv?sv.name:'(servicio)').replace(/{precio}/g,fmtM(price||0)).replace(/{negocio}/g,'MGlo Bioestetic');
+  const msg=(t.confirm||'').replace(/{nombre}/g,cl?cl.name:'(cliente)').replace(/{fecha}/g,fmt(date)||'(fecha)').replace(/{hora}/g,time||'(hora)').replace(/{servicio}/g,sv?sv.name:'(servicio)').replace(/{precio}/g,fmtM(price||0)).replace(/{negocio}/g,'MaGlo-Biostethic');
   document.getElementById('apptWATpl').value=msg;
 }
 function sendApptWA(){
@@ -873,7 +939,7 @@ function sendApptWAById(id){
   const cl=(DB.g('clients')||[]).find(c=>c.id===a.cliId);if(!cl)return;
   const sv=(DB.g('services')||[]).find(s=>s.id===a.svcId);
   const t=DB.g('waTpl')||{};
-  const msg=(t.confirm||'').replace(/{nombre}/g,cl.name).replace(/{fecha}/g,fmt(a.date)).replace(/{hora}/g,a.time||'').replace(/{servicio}/g,sv?sv.name:a.svcName||'').replace(/{precio}/g,fmtM(a.price)).replace(/{negocio}/g,'MGlo Bioestetic');
+  const msg=(t.confirm||'').replace(/{nombre}/g,cl.name).replace(/{fecha}/g,fmt(a.date)).replace(/{hora}/g,a.time||'').replace(/{servicio}/g,sv?sv.name:a.svcName||'').replace(/{precio}/g,fmtM(a.price)).replace(/{negocio}/g,'MaGlo-Biostethic');
   openWA(cl.phone,msg);
 }
 function saveAppt(){
@@ -888,6 +954,13 @@ function saveAppt(){
   const sv=(DB.g('services')||[]).find(s=>s.id===svcId);
   const appts=DB.g('appointments')||[];
   const eid=document.getElementById('apptId').value;
+  if(time){
+    const clash=appts.find(a=>a.id!==eid&&a.date===date&&a.time===time&&a.status!=='cancelado');
+    if(clash){
+      const cc=(DB.g('clients')||[]).find(c=>c.id===clash.cliId);
+      if(!confirm('⚠ CHOQUE DE HORARIO\n\nYa existe una cita el '+fmt(date)+' a las '+time+' con '+(cc?cc.name+' '+cc.surname:'otro cliente')+' ('+(clash.svcName||'servicio')+').\n\n¿Guardar de todas formas?'))return;
+    }
+  }
   const obj={id:eid||uid(),cliId,svcId,svcName:sv?sv.name:'',date,time,price:Number(price||0),status,notes,createdAt:eid?(appts.find(a=>a.id===eid)||{}).createdAt||new Date().toISOString():new Date().toISOString()};
   if(eid){const i=appts.findIndex(a=>a.id===eid);if(i>-1)appts[i]=obj}else appts.push(obj);
   DB.s('appointments',appts);
@@ -902,6 +975,46 @@ function delAppt(id){
   if(!confirm('¿Eliminar esta cita?'))return;
   DB.s('appointments',(DB.g('appointments')||[]).filter(a=>a.id!==id));
   toast('Cita eliminada');renderSlots(ST.selDate);renderCal();renderHome();
+}
+function cancelarAppt(id){
+  const appts=DB.g('appointments')||[];
+  const a=appts.find(x=>x.id===id);if(!a)return;
+  if(!confirm('¿Cancelar esta cita?\n\nEl horario '+(a.time||'')+' del '+fmt(a.date)+' quedará disponible nuevamente.\nLa cita queda registrada como CANCELADA (no se borra).'))return;
+  a.status='cancelado';
+  DB.s('appointments',appts);
+  toast('✓ Cita cancelada · horario liberado');
+  renderSlots(ST.selDate);renderCal();renderHome();
+}
+function reactivarAppt(id){
+  const appts=DB.g('appointments')||[];
+  const a=appts.find(x=>x.id===id);if(!a)return;
+  const clash=appts.find(x=>x.id!==id&&x.date===a.date&&x.time===a.time&&x.time&&x.status!=='cancelado');
+  if(clash&&!confirm('⚠ Ese horario ya está ocupado por otra cita.\n¿Reactivar de todas formas?'))return;
+  a.status='pendiente';
+  DB.s('appointments',appts);
+  toast('✓ Cita reactivada');
+  renderSlots(ST.selDate);renderCal();renderHome();
+}
+function editAppt(id){
+  const a=(DB.g('appointments')||[]).find(x=>x.id===id);if(!a)return;
+  showOverlay('ovAppt');
+  document.getElementById('apptTitle').textContent='Editar Cita';
+  document.getElementById('apptId').value=a.id;
+  document.getElementById('apptClient').value=a.cliId||'';
+  document.getElementById('apptSvc').value=a.svcId||'';
+  document.getElementById('apptDate').value=a.date||'';
+  document.getElementById('apptTime').value=a.time||'';
+  document.getElementById('apptPrice').value=a.price||'';
+  document.getElementById('apptStatus').value=a.status||'pendiente';
+  document.getElementById('apptNotes').value=a.notes||'';
+  loadPkgInfo();updApptWATpl();
+}
+function newApptAt(ds,hh){
+  ST.selDate=ds;
+  showOverlay('ovAppt');
+  document.getElementById('apptDate').value=ds;
+  document.getElementById('apptTime').value=hh;
+  updApptWATpl();
 }
 
 // ─── CLIENTS ───
@@ -930,7 +1043,7 @@ function saveClient(){
 }
 function sendClientWA(){
   const c=(DB.g('clients')||[]).find(x=>x.id===ST.histCli);if(!c)return;
-  openWA(c.phone,'Hola '+c.name+'! 🌸 Te contactamos desde *MGlo Bioestetic* — Bioq. María Gloria Sánchez.');
+  openWA(c.phone,'Hola '+c.name+'! 🌸 Te contactamos desde *MaGlo-Biostethic* — Bioq. María Gloria Sánchez.');
 }
 
 // ─── HISTORY ───
@@ -1070,7 +1183,7 @@ function sendProdWA(){
   const p=(DB.g('products')||[]).find(x=>x.id===ST.curProd);
   const cl=(DB.g('clients')||[]).find(c=>c.id===cliId);
   if(!cl){toast('Seleccioná un cliente');return}
-  const msg=`Hola ${cl.name}! 🌸\nTe comparto este producto de *MGlo Bioestetic*:\n\n✨ *${p.name}*\n${p.desc?p.desc+'\n':''  }\nPrecio: *${fmtM(p.price)}*\n\n¿Te interesa? 💆‍♀️`;
+  const msg=`Hola ${cl.name}! 🌸\nTe comparto este producto de *MaGlo-Biostethic*:\n\n✨ *${p.name}*\n${p.desc?p.desc+'\n':''  }\nPrecio: *${fmtM(p.price)}*\n\n¿Te interesa? 💆‍♀️`;
   openWA(cl.phone,msg);
 }
 function editProdFromDetail(){const p=(DB.g('products')||[]).find(x=>x.id===ST.curProd);if(!p)return;hideOverlay('ovProdDetail');document.getElementById('productTitle').textContent='Editar Producto';document.getElementById('productId').value=p.id;document.getElementById('prodName').value=p.name;document.getElementById('prodDesc').value=p.desc||'';document.getElementById('prodCat').value=p.cat;document.getElementById('prodPrice').value=p.price;document.getElementById('prodStock').value=p.stock||0;document.getElementById('prodImgData').value=p.img||'';const img=document.getElementById('prodImgPrev');if(p.img){img.src=p.img;img.style.display='block'}else img.style.display='none';showOverlay('ovProduct')}
@@ -1116,7 +1229,7 @@ function renderSuppliers(filter=''){
   if(filter)sups=sups.filter(s=>s.name.toLowerCase().includes(filter.toLowerCase())||(s.cat||'').toLowerCase().includes(filter.toLowerCase()));
   const el=document.getElementById('supList');
   if(!sups.length){el.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><p>No hay proveedores</p></div>';return}
-  el.innerHTML=sups.map(s=>`<div class="sucard"><div class="suav">${s.name.charAt(0)}</div><div style="flex:1"><div style="font-size:13.5px;font-weight:500">${s.name}</div>${s.contact?`<div style="font-size:11.5px;color:var(--ink-light)">${s.contact}</div>`:''  }${s.cat?`<span class="bdg b-gray" style="margin-top:2px;font-size:10px">${s.cat}</span>`:''  }${s.notes?`<div style="font-size:10.5px;color:var(--ink-light);margin-top:2px;font-style:italic">${s.notes}</div>`:''}</div><div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">${s.phone?`<button class="btn b-wa b-sm" onclick="openWA('${s.phone}','Hola ${s.name}! Me contacto desde MGlo Bioestetic.')">WA</button>`:''}<button class="btn b-soft b-sm" onclick="editSup('${s.id}')">✏</button><button class="btn b-danger b-sm" onclick="delSup('${s.id}')">✕</button></div></div>`).join('');
+  el.innerHTML=sups.map(s=>`<div class="sucard"><div class="suav">${s.name.charAt(0)}</div><div style="flex:1"><div style="font-size:13.5px;font-weight:500">${s.name}</div>${s.contact?`<div style="font-size:11.5px;color:var(--ink-light)">${s.contact}</div>`:''  }${s.cat?`<span class="bdg b-gray" style="margin-top:2px;font-size:10px">${s.cat}</span>`:''  }${s.notes?`<div style="font-size:10.5px;color:var(--ink-light);margin-top:2px;font-style:italic">${s.notes}</div>`:''}</div><div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">${s.phone?`<button class="btn b-wa b-sm" onclick="openWA('${s.phone}','Hola ${s.name}! Me contacto desde MaGlo-Biostethic.')">WA</button>`:''}<button class="btn b-soft b-sm" onclick="editSup('${s.id}')">✏</button><button class="btn b-danger b-sm" onclick="delSup('${s.id}')">✕</button></div></div>`).join('');
 }
 function editSup(id){const s=(DB.g('suppliers')||[]).find(x=>x.id===id);if(!s)return;document.getElementById('supTitle').textContent='Editar Proveedor';document.getElementById('supId').value=s.id;document.getElementById('supName').value=s.name;document.getElementById('supContact').value=s.contact||'';document.getElementById('supPhone').value=s.phone||'';document.getElementById('supCat').value=s.cat||'';document.getElementById('supNotes').value=s.notes||'';showOverlay('ovSupplier')}
 function delSup(id){if(!confirm('¿Eliminar?'))return;DB.s('suppliers',(DB.g('suppliers')||[]).filter(s=>s.id!==id));toast('Eliminado');renderSuppliers()}
@@ -1131,7 +1244,7 @@ plasma:(n,ci,tel,dia,mes,anio,hora,svc)=>
 
 CONSENTIMIENTO INFORMADO — PLASMA RICO EN PLAQUETAS (PRP)
 
-Yo, ${n}, CI N°: ${ci||'_________________'}, con domicilio en Ciudad del Este, declaro haber sido informada/o de manera clara y comprensible sobre el tratamiento de Plasma Rico en Plaquetas (PRP) a realizarse en MGlo Bioestetic, a cargo de la Bioq. & Cosmetóloga María Gloria Sánchez.
+Yo, ${n}, CI N°: ${ci||'_________________'}, con domicilio en Ciudad del Este, declaro haber sido informada/o de manera clara y comprensible sobre el tratamiento de Plasma Rico en Plaquetas (PRP) a realizarse en MaGlo-Biostethic, a cargo de la Bioq. & Cosmetóloga María Gloria Sánchez.
 
 DESCRIPCIÓN DEL PROCEDIMIENTO:
 Extracción de una pequeña muestra de sangre propia, procesada para obtener plasma con factores de crecimiento, aplicado mediante microinyecciones o microagujas en la zona tratada.
@@ -1169,7 +1282,7 @@ botox:(n,ci,tel,dia,mes,anio,hora,svc)=>
 
 CONSENTIMIENTO INFORMADO — TOXINA BOTULÍNICA (BOTOX)
 
-Yo, ${n}, CI N°: ${ci||'_________________'}, con domicilio en Ciudad del Este, declaro haber sido informada/o sobre la aplicación de toxina botulínica tipo A en MGlo Bioestetic, a cargo de la Bioq. & Cosmetóloga María Gloria Sánchez.
+Yo, ${n}, CI N°: ${ci||'_________________'}, con domicilio en Ciudad del Este, declaro haber sido informada/o sobre la aplicación de toxina botulínica tipo A en MaGlo-Biostethic, a cargo de la Bioq. & Cosmetóloga María Gloria Sánchez.
 
 DESCRIPCIÓN: Aplicación de microinyecciones de toxina botulínica en músculos faciales seleccionados para atenuar líneas de expresión dinámicas.
 
@@ -1272,7 +1385,7 @@ function genConsentPDF(){
   const w=window.open('','_blank');
   if(!w){toast('Permití las ventanas emergentes');return}
   const esc=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Consentimiento — MGlo Bioestetic</title><style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&display=swap');*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',Georgia,serif;max-width:720px;margin:36px auto;padding:28px 32px;color:#1a1a1a;line-height:1.9;font-size:13.5px;background:#fff}.hdr{text-align:center;border-bottom:2px solid #c9a84c;padding-bottom:16px;margin-bottom:22px}.hdr h1{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;letter-spacing:2px}.hdr h2{font-size:12px;font-weight:400;color:#7a6e62;margin-top:4px;letter-spacing:1px}pre{white-space:pre-wrap;font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.9}.sigs{margin-top:30px;padding-top:18px;border-top:1px solid #e8ddd2;display:flex;gap:24px}.sb{flex:1;text-align:center}.sig-img{max-width:220px;max-height:80px;border-bottom:1.5px solid #1a1a1a;display:block;margin:0 auto 5px}.sig-line{height:65px;border-bottom:1.5px solid #1a1a1a;margin:0 auto 5px;max-width:210px}.sl{font-size:10.5px;color:#7a6e62;letter-spacing:.5px}.ft{margin-top:24px;text-align:center;font-size:10.5px;color:#b8a99a;border-top:1px solid #f0e8df;padding-top:14px}.pbtn{display:block;margin:18px auto 0;padding:10px 28px;background:#c9a84c;color:#1a1a1a;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif}@media print{.pbtn{display:none}body{margin:0;padding:18px}}</style></head><body><div class="hdr"><h1>MGlo Bioestetic</h1><h2>Bioq. &amp; Cosmetóloga — María Gloria Sánchez · Ciudad del Este, Paraguay</h2></div><pre>${esc}</pre><div class="sigs"><div class="sb">${sigImg?`<img src="${sigImg}" class="sig-img" alt="Firma paciente">`:`<div class="sig-line"></div>`}<div class="sl">Firma del/la Paciente</div></div><div class="sb"><div class="sig-line"></div><div class="sl">Sello / Firma del Profesional</div></div></div><div class="ft">MGlo Bioestetic · Ciudad del Este · Generado el ${fmt(today())}</div><button class="pbtn" onclick="window.print()">🖨 Imprimir / Guardar PDF</button></body></html>`);
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Consentimiento — MaGlo-Biostethic</title><style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&display=swap');*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',Georgia,serif;max-width:720px;margin:36px auto;padding:28px 32px;color:#1a1a1a;line-height:1.9;font-size:13.5px;background:#fff}.hdr{text-align:center;border-bottom:2px solid #c9a84c;padding-bottom:16px;margin-bottom:22px}.hdr h1{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;letter-spacing:2px}.hdr h2{font-size:12px;font-weight:400;color:#7a6e62;margin-top:4px;letter-spacing:1px}pre{white-space:pre-wrap;font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.9}.sigs{margin-top:30px;padding-top:18px;border-top:1px solid #e8ddd2;display:flex;gap:24px}.sb{flex:1;text-align:center}.sig-img{max-width:220px;max-height:80px;border-bottom:1.5px solid #1a1a1a;display:block;margin:0 auto 5px}.sig-line{height:65px;border-bottom:1.5px solid #1a1a1a;margin:0 auto 5px;max-width:210px}.sl{font-size:10.5px;color:#7a6e62;letter-spacing:.5px}.ft{margin-top:24px;text-align:center;font-size:10.5px;color:#b8a99a;border-top:1px solid #f0e8df;padding-top:14px}.pbtn{display:block;margin:18px auto 0;padding:10px 28px;background:#c9a84c;color:#1a1a1a;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif}@media print{.pbtn{display:none}body{margin:0;padding:18px}}</style></head><body><div class="hdr"><h1>MaGlo-Biostethic</h1><h2>Bioq. &amp; Cosmetóloga — María Gloria Sánchez · Ciudad del Este, Paraguay</h2></div><pre>${esc}</pre><div class="sigs"><div class="sb">${sigImg?`<img src="${sigImg}" class="sig-img" alt="Firma paciente">`:`<div class="sig-line"></div>`}<div class="sl">Firma del/la Paciente</div></div><div class="sb"><div class="sig-line"></div><div class="sl">Sello / Firma del Profesional</div></div></div><div class="ft">MaGlo-Biostethic · Ciudad del Este · Generado el ${fmt(today())}</div><button class="pbtn" onclick="window.print()">🖨 Imprimir / Guardar PDF</button></body></html>`);
   w.document.close();
 }
 
@@ -1298,7 +1411,7 @@ function savePayData(){
 }
 function buildPayMsg(clientName,amount,concept){
   const p=DB.g('payData')||{};
-  let msg='Hola '+clientName+'! 🌸\nTe envío los datos para tu pago en *MGlo Bioestetic*:\n\n';
+  let msg='Hola '+clientName+'! 🌸\nTe envío los datos para tu pago en *MaGlo-Biostethic*:\n\n';
   if(concept)msg+='📋 Concepto: *'+concept+'*\n';
   if(amount&&Number(amount)>0)msg+='💵 Monto: *'+fmtM(amount)+'*\n\n';
   if(p.pyBankName){
@@ -1350,27 +1463,106 @@ function sendPayWAForForm(){
 
 // ─── FINANCE ───
 let finFilter='month';
-function filterFin(f,el){finFilter=f;document.querySelectorAll('#s-finance .tab').forEach(t=>t.classList.remove('on'));if(el)el.classList.add('on');renderFin()}
+function isoD(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function filterFin(f,el){
+  finFilter=f;
+  document.querySelectorAll('#s-finance .tab').forEach(t=>t.classList.remove('on'));
+  if(el)el.classList.add('on');
+  document.getElementById('finRange').style.display=f==='custom'?'block':'none';
+  if(f==='custom'&&!document.getElementById('finFrom').value){
+    const n=new Date();
+    document.getElementById('finFrom').value=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-01';
+    document.getElementById('finTo').value=today();
+  }
+  renderFin();
+}
+function finPopClients(){
+  const sel=document.getElementById('finClient');const cur=sel.value;
+  const cls=(DB.g('clients')||[]).slice().sort((a,b)=>((a.name||'')+(a.surname||''))>((b.name||'')+(b.surname||''))?1:-1);
+  sel.innerHTML='<option value="">👥 Todos los clientes</option>'+cls.map(c=>`<option value="${c.id}">${c.name} ${c.surname}</option>`).join('');
+  sel.value=cur;
+}
 function renderFin(){
+  finPopClients();
   const now=new Date();
-  const ym=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
-  const yr=String(now.getFullYear());
-  let appts=DB.g('appointments')||[];let expenses=DB.g('expenses')||[];
-  if(finFilter==='month'){appts=appts.filter(a=>a.date&&a.date.startsWith(ym)&&a.status!=='cancelado');expenses=expenses.filter(e=>e.date&&e.date.startsWith(ym))}
-  else if(finFilter==='year'){appts=appts.filter(a=>a.date&&a.date.startsWith(yr)&&a.status!=='cancelado');expenses=expenses.filter(e=>e.date&&e.date.startsWith(yr))}
+  let from=null,to=null,lbl='';
+  if(finFilter==='week'){
+    const dow=(now.getDay()+6)%7;
+    const mon=new Date(now);mon.setDate(now.getDate()-dow);
+    const sun=new Date(mon);sun.setDate(mon.getDate()+6);
+    from=isoD(mon);to=isoD(sun);lbl='Semana actual · '+fmt(from)+' → '+fmt(to);
+  }else if(finFilter==='month'){
+    from=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-01';
+    to=isoD(new Date(now.getFullYear(),now.getMonth()+1,0));
+    lbl=moName(now.getMonth())+' '+now.getFullYear();
+  }else if(finFilter==='year'){
+    from=now.getFullYear()+'-01-01';to=now.getFullYear()+'-12-31';lbl='Año '+now.getFullYear();
+  }else if(finFilter==='custom'){
+    from=document.getElementById('finFrom').value||null;
+    to=document.getElementById('finTo').value||null;
+    if(from&&to&&from>to){const t=from;from=to;to=t;document.getElementById('finFrom').value=from;document.getElementById('finTo').value=to;}
+    lbl=(from?fmt(from):'inicio')+' → '+(to?fmt(to):'hoy');
+  }else{lbl='Histórico completo';}
+  const cliF=document.getElementById('finClient').value;
+  let appts=(DB.g('appointments')||[]).filter(a=>a.status!=='cancelado');
+  let expenses=DB.g('expenses')||[];
+  if(from){appts=appts.filter(a=>a.date&&a.date>=from);expenses=expenses.filter(e=>e.date&&e.date>=from);}
+  if(to){appts=appts.filter(a=>a.date&&a.date<=to);expenses=expenses.filter(e=>e.date&&e.date<=to);}
+  if(cliF){
+    const cl=(DB.g('clients')||[]).find(c=>c.id===cliF);
+    appts=appts.filter(a=>a.cliId===cliF);
+    lbl+=' · '+(cl?cl.name+' '+cl.surname:'Cliente');
+  }
+  document.getElementById('finPeriodLbl').textContent='📊 '+lbl;
   const inc=appts.reduce((s,a)=>s+Number(a.price||0),0);
   const exp=expenses.reduce((s,e)=>s+Number(e.amount||0),0);
-  document.getElementById('finCards').innerHTML=
-    `<div class="fincard fin-in"><div class="finlbl">Ingresos</div><div class="finamt">${fmtM(inc)}</div><div class="finsub">${appts.length} servicio${appts.length!==1?'s':''}</div></div>`+
-    `<div class="fincard fin-out"><div class="finlbl">Gastos</div><div class="finamt">${fmtM(exp)}</div><div class="finsub">${expenses.length} movimiento${expenses.length!==1?'s':''}</div></div>`+
-    `<div class="fincard fin-net"><div class="finlbl">Ganancia Neta</div><div class="finamt">${fmtM(inc-exp)}</div><div class="finsub">${inc-exp>=0?'Positivo ✓':'Negativo ✗'}</div></div>`;
+  if(cliF){
+    const tkt=appts.length?Math.round(inc/appts.length):0;
+    document.getElementById('finCards').innerHTML=
+      `<div class="fincard fin-in"><div class="finlbl">Ingresos del Cliente</div><div class="finamt">${fmtM(inc)}</div><div class="finsub">${appts.length} servicio${appts.length!==1?'s':''}</div></div>`+
+      `<div class="fincard fin-net"><div class="finlbl">Ticket Promedio</div><div class="finamt">${fmtM(tkt)}</div><div class="finsub">por servicio</div></div>`;
+  }else{
+    document.getElementById('finCards').innerHTML=
+      `<div class="fincard fin-in"><div class="finlbl">Ingresos</div><div class="finamt">${fmtM(inc)}</div><div class="finsub">${appts.length} servicio${appts.length!==1?'s':''}</div></div>`+
+      `<div class="fincard fin-out"><div class="finlbl">Gastos</div><div class="finamt">${fmtM(exp)}</div><div class="finsub">${expenses.length} movimiento${expenses.length!==1?'s':''}</div></div>`+
+      `<div class="fincard fin-net"><div class="finlbl">Ganancia Neta</div><div class="finamt">${fmtM(inc-exp)}</div><div class="finsub">${inc-exp>=0?'Positivo ✓':'Negativo ✗'}</div></div>`;
+  }
+  const rank={};
+  appts.forEach(a=>{const k=a.svcName||'(sin servicio)';if(!rank[k])rank[k]={n:0,inc:0};rank[k].n++;rank[k].inc+=Number(a.price||0)});
+  const rSorted=Object.entries(rank).sort((a,b)=>b[1].inc-a[1].inc);
+  const rCard=document.getElementById('svcRankCard');
+  if(rSorted.length){
+    rCard.style.display='block';
+    const maxInc=rSorted[0][1].inc||1;
+    document.getElementById('svcRankList').innerHTML=rSorted.map(([k,v],i)=>`<div style="padding:6px 0;border-bottom:1px solid var(--beige-dark)"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px"><span>${i===0?'🥇 ':i===1?'🥈 ':i===2?'🥉 ':''}${k} <span class="bdg b-rose" style="font-size:10px">${v.n}×</span></span><b style="color:var(--gold-dark)">${fmtM(v.inc)}</b></div><div class="pkgbar"><div class="pkgfill" style="width:${Math.round(v.inc/maxInc*100)}%"></div></div></div>`).join('');
+  }else rCard.style.display='none';
+  FINLAST={lbl,inc,exp,cliF,appts:appts.slice(),expenses:cliF?[]:expenses.slice(),rank:rSorted};
   const mvs=[
     ...appts.map(a=>{const cl=(DB.g('clients')||[]).find(c=>c.id===a.cliId);return{date:a.date,label:(cl?cl.name+' '+cl.surname:'Cliente')+' — '+(a.svcName||''),amount:a.price,type:'inc'}}),
-    ...expenses.map(e=>({date:e.date,label:e.desc+' ('+e.cat+')',amount:-e.amount,type:'exp',id:e.id}))
+    ...(cliF?[]:expenses.map(e=>({date:e.date,label:e.desc+' ('+e.cat+')',amount:-e.amount,type:'exp',id:e.id})))
   ].sort((a,b)=>b.date>a.date?1:-1);
   const fEl=document.getElementById('finList');
-  if(!mvs.length){fEl.innerHTML='<div class="empty"><p>Sin movimientos</p></div>';return}
-  fEl.innerHTML=mvs.map(m=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--beige-dark)"><div><div style="font-size:13px;font-weight:500">${m.label}</div><div style="font-size:10px;color:var(--ink-light)">${fmt(m.date)}</div></div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:13px;font-weight:600;color:${m.amount>=0?'var(--success)':'var(--danger)'}">${m.amount>=0?'+':''  }${fmtM(Math.abs(m.amount))}</span>${m.type==='exp'?`<button class="btn b-danger b-sm" onclick="delExpense('${m.id}')">✕</button>`:''}</div></div>`).join('');
+  if(!mvs.length){fEl.innerHTML='<div class="empty"><p>Sin movimientos en este período</p></div>';return}
+  fEl.innerHTML=mvs.map(m=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--beige-dark)"><div><div style="font-size:13px;font-weight:500">${m.label}</div><div style="font-size:10px;color:var(--ink-light)">${fmt(m.date)}</div></div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:13px;font-weight:600;color:${m.amount>=0?'var(--success)':'var(--danger)'}">${m.amount>=0?'+':''}${fmtM(Math.abs(m.amount))}</span>${m.type==='exp'?`<button class="btn b-danger b-sm" onclick="delExpense('${m.id}')">✕</button>`:''}</div></div>`).join('');
+}
+let FINLAST=null;
+function printFinReport(){
+  if(!FINLAST){renderFin()}
+  const F=FINLAST;if(!F){toast('Sin datos');return}
+  const clients=DB.g('clients')||[];
+  const rows=[
+    ...F.appts.map(a=>{const cl=clients.find(c=>c.id===a.cliId);return{date:a.date,label:(cl?cl.name+' '+cl.surname:'Cliente')+' — '+(a.svcName||''),amt:Number(a.price||0)}}),
+    ...F.expenses.map(e=>({date:e.date,label:e.desc+' ('+e.cat+')',amt:-Number(e.amount||0)}))
+  ].sort((a,b)=>a.date>b.date?1:-1);
+  const rowsHtml=rows.map(r=>'<tr><td>'+fmt(r.date)+'</td><td>'+r.label+'</td><td style="text-align:right;color:'+(r.amt>=0?'#2e7d4f':'#b03a3a')+'">'+(r.amt>=0?'+':'−')+fmtM(Math.abs(r.amt))+'</td></tr>').join('');
+  const rankHtml=F.rank.length?'<h3>Ranking de Servicios</h3><table><tr><th>Servicio</th><th style="text-align:center">Cant.</th><th style="text-align:right">Ingresos</th></tr>'+F.rank.map(([k,v])=>'<tr><td>'+k+'</td><td style="text-align:center">'+v.n+'</td><td style="text-align:right">'+fmtM(v.inc)+'</td></tr>').join('')+'</table>':'';
+  const cardsHtml=F.cliF
+    ?'<div class="cds"><div class="cd1"><span>Ingresos</span><b>'+fmtM(F.inc)+'</b></div><div class="cd1"><span>Servicios</span><b>'+F.appts.length+'</b></div><div class="cd1"><span>Ticket Promedio</span><b>'+fmtM(F.appts.length?Math.round(F.inc/F.appts.length):0)+'</b></div></div>'
+    :'<div class="cds"><div class="cd1"><span>Ingresos</span><b style="color:#2e7d4f">'+fmtM(F.inc)+'</b></div><div class="cd1"><span>Gastos</span><b style="color:#b03a3a">'+fmtM(F.exp)+'</b></div><div class="cd1"><span>Ganancia Neta</span><b>'+fmtM(F.inc-F.exp)+'</b></div></div>';
+  const w=window.open('','_blank');
+  if(!w){toast('Permití ventanas emergentes');return}
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Reporte Finanzas — MaGlo-Biostethic</title><style>@import url(\'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&display=swap\');*{box-sizing:border-box;margin:0;padding:0}body{font-family:\'DM Sans\',sans-serif;max-width:760px;margin:32px auto;padding:24px 30px;color:#1a1a1a;font-size:13px}.hdr{text-align:center;border-bottom:2px solid #c9a84c;padding-bottom:14px;margin-bottom:18px}.hdr h1{font-family:\'Cormorant Garamond\',serif;font-size:26px;font-weight:400;letter-spacing:2px}.hdr h2{font-size:11.5px;font-weight:400;color:#7a6e62;margin-top:4px}.per{text-align:center;font-size:13px;color:#7a6e62;margin-bottom:16px}.cds{display:flex;gap:12px;margin-bottom:20px}.cd1{flex:1;border:1px solid #e8ddd2;border-radius:10px;padding:12px;text-align:center}.cd1 span{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#7a6e62;margin-bottom:5px}.cd1 b{font-size:16px}h3{font-family:\'Cormorant Garamond\',serif;font-size:18px;font-weight:600;margin:18px 0 8px;color:#5a4a2a}table{width:100%;border-collapse:collapse;margin-bottom:14px}th{text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#7a6e62;border-bottom:1.5px solid #c9a84c;padding:5px 4px}td{padding:6px 4px;border-bottom:1px solid #f0e8df;font-size:12.5px}.ft{margin-top:22px;text-align:center;font-size:10.5px;color:#b8a99a;border-top:1px solid #f0e8df;padding-top:12px}.pbtn{display:block;margin:16px auto 0;padding:10px 28px;background:#c9a84c;color:#1a1a1a;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;font-family:\'DM Sans\',sans-serif}@media print{.pbtn{display:none}body{margin:0;padding:14px}}</style></head><body><div class="hdr"><h1>MaGlo-Biostethic</h1><h2>Bioq. &amp; Cosmetóloga — María Gloria Sánchez · Ciudad del Este, Paraguay</h2></div><div class="per">📊 Reporte Financiero · '+F.lbl+'</div>'+cardsHtml+rankHtml+'<h3>Movimientos ('+rows.length+')</h3><table><tr><th>Fecha</th><th>Detalle</th><th style="text-align:right">Monto</th></tr>'+rowsHtml+'</table><div class="ft">MaGlo-Biostethic · Generado el '+fmt(today())+'</div><button class="pbtn" onclick="window.print()">🖨 Imprimir / Guardar PDF</button></body></html>');
+  w.document.close();
 }
 function saveExpense(){
   const desc=document.getElementById('expDesc').value.trim();
@@ -1385,15 +1577,15 @@ function delExpense(id){if(!confirm('¿Eliminar?'))return;DB.s('expenses',(DB.g(
 
 // ─── BACKUP ───
 function doBackup(){
-  const keys=['clients','services','appointments','expenses','evoluciones','products','suppliers','clientPkgs','payData','waTpl'];
-  const data={_v:4,_date:new Date().toISOString(),_app:'MGlo Bioestetic'};
+  const keys=['clients','services','appointments','expenses','evoluciones','products','suppliers','clientPkgs','payData','waTpl','bizHours'];
+  const data={_v:4,_date:new Date().toISOString(),_app:'MaGlo-Biostethic'};
   keys.forEach(k=>data[k]=DB.g(k));
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
   a.href=url;
   const d=new Date();
-  a.download=`mglo_backup_${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}.json`;
+  a.download=`maglo_backup_${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}.json`;
   a.click();URL.revokeObjectURL(url);
   const ts=new Date().toISOString();
   DB.s('lastBackup',ts);
@@ -1408,7 +1600,7 @@ function doRestore(input){
   r.onload=e=>{
     try{
       const data=JSON.parse(e.target.result);
-      const keys=['clients','services','appointments','expenses','evoluciones','products','suppliers','clientPkgs','payData','waTpl'];
+      const keys=['clients','services','appointments','expenses','evoluciones','products','suppliers','clientPkgs','payData','waTpl','bizHours'];
       keys.forEach(k=>{if(data[k]!=null)DB.s(k,data[k])});
       toast('✓ Backup restaurado correctamente');
       setTimeout(()=>location.reload(),1200);
